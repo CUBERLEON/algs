@@ -1,13 +1,8 @@
-/*
-Title: Merge sort
-Description: sorts 1-dimensional array of integers
-Technique: Divide & conquer
-Time complexity: NlogN
-Memory usage: N
-*/
+/* Sorts 1-dimensional array of integers
+ * Complexity: N*logN
+ */
 
 #include <bits/stdc++.h>
-
 using namespace std;
 
 void mergeSort(int* arr, int n) {

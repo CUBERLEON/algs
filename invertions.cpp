@@ -1,10 +1,6 @@
-/*
-Title: Count invertions
-Description: counts invertions in 1-dimensional array of integers
-Technique: Divide & conquer
-Time complexity: NlogN
-Memory usage: N
-*/
+/* Counts invertions in 1-dimensional array of integers
+ * Complexity: N*logN
+ */
 
 #include <bits/stdc++.h>
 using namespace std;

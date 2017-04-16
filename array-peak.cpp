@@ -1,10 +1,9 @@
 /*
-Title: Peak finding
-Description: finds peak in 1-dimensional array of distinct integers which at first constantly increse and then decrease
-Technique: Divide & conquer
-Time complexity: logN
-Memory usage: N
+ * Finds a peak in a 1-dimensional array of distinct integers which at first constantly increses and then decreases
+ * Complexity: logN
+ */
 
+/*
 INPUT:
 23
 1 2 3 4 5 6 7 8 9 10 11 12 13 16 20 21 25 17 15 13 5 4 2
@@ -13,7 +12,6 @@ OUTPUT:
 */
 
 #include <bits/stdc++.h>
-
 using namespace std;
 
 int main() {
