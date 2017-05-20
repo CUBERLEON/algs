@@ -13,4 +13,7 @@ install:
     - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
 
 script:
-    - ./test_build.sh
+    -   for filename in ./codes/*.cpp; do
+            g++ -std=c++11 $filename -o $filename.run;
+            rm -f $filename.run;
+        done
