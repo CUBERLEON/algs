@@ -53,9 +53,9 @@ void println(const vector<int>& x) {
 }
 
 main() {
-	println(mult(build(8), 13)); //104
+    println(mult(build(8), 13)); //104
     println(mult(build(0), 78)); //0
-	println(subtr(build(35), build(27))); //8
+    println(subtr(build(35), build(27))); //8
     println(subtr(build(88), build(0))); //88
-	println(subtr(mult(build(8), 13), build(101))); //3
+    println(subtr(mult(build(8), 13), build(101))); //3
 }
