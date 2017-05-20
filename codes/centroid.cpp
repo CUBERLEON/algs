@@ -1,7 +1,6 @@
 /* Centroid of a tree
  * Complexity: N
- */
-
+ * Input: g {graph} */
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -20,8 +19,7 @@ int find_centroid(int v) {
         if (used[to]) continue;
 
         int t = find_centroid(to);
-        if (t != -1)
-            return t;
+        if (t != -1) return t;
 
         s[v] += s[to];
         centroid &= s[to] <= n/2;
@@ -31,19 +29,14 @@ int find_centroid(int v) {
     return (centroid ? v : -1);
 }
 
-int main() {
-    ios::sync_with_stdio(0);
-
-    cin >> n >> m;
-    for (int i = 0; i < m; ++i) {
+main() {
+    cin >> n;
+    for (int i = 0; i < n-1; ++i) {
         int a, b;
         cin >> a >> b;
         --a, --b;
         g[a].push_back(b);
         g[b].push_back(a);
     }
-
     cout << find_centroid(0)+1 << endl;
-
-    return 0;
 }

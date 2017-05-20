@@ -1,0 +1,4 @@
+language: cpp
+compiler: gcc
+script:
+    - test_build.sh

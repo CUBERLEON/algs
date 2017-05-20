@@ -1,7 +1,6 @@
 /* Centroid decomposition of a tree
  * Complexity: N*logN
- */
-
+ * Input: g {graph}; Output: dg {decomposition of the graph} */
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -27,7 +26,6 @@ int find_centroid(int v, int n) {
         if (t != -1) return t;
 
         s[v] += s[to];
-
         centroid &= s[to] <= n/2;
     }
     centroid &= n-s[v] <= n/2;
@@ -68,11 +66,9 @@ int decompose(int root) {
     return v;
 }
 
-int main() {
-    ios::sync_with_stdio(0);
-
-    cin >> n >> m;
-    for (int i = 0; i < m; ++i) {
+main() {
+    cin >> n;
+    for (int i = 0; i < n-1; ++i) {
         int a, b;
         cin >> a >> b;
         --a, --b;
@@ -81,12 +77,7 @@ int main() {
     }
 
     decompose(0);
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < dg[i].size(); ++j) {
-            if (i < dg[i][j])
-                cout << i+1 << " " << dg[i][j]+1 << endl;
-        }
-    }
-
-    return 0;
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < dg[i].size(); ++j)
+            if (i < dg[i][j]) cout << i+1 << " " << dg[i][j]+1 << endl;
 }
