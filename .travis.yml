@@ -18,15 +18,10 @@ install:
 script:
     - for filename in ./codes/*.cpp; do
         ARGS="-std=c++11 -ftest-coverage -fprofile-arcs";
-        g++ $ARGS -c ${filename} -o ${filename}.o;
-        g++ $ARGS ${filename}.o -o ${filename}.run;
-        ${filename}.run;
-        mv ${filename}.gcno ${filename%.*}.gcno;
-        mv ${filename}.gcda ${filename%.*}.gcda;
-        gcov ${filename};
-        rm -f ${filename}.run;
-        rm -f ${filename}.o;
-        rm -f ${filename%.*}.gcno;
-        rm -f ${filename%.*}.gcda;
+        f=${filename%.*};
+        g++ $ARGS -c ${f}.cpp -o ${f}.o;
+        g++ $ARGS ${f}.o -o ${f};
+        ${f};
+        gcov ${f}.cpp;
       done
     - codecov
