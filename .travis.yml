@@ -18,6 +18,7 @@ install:
 script:
     -   for filename in ./codes/*.cpp; do
             g++ -std=c++11 $filename -o $filename.run;
+            coverage run ./$filename.run;
             gcov -n -o ./codes/$filename.run $filename > /dev/null;
             rm -f $filename.run;
         done
