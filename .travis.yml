@@ -16,13 +16,17 @@ install:
     - sudo pip install codecov
 
 script:
-    -   for filename in ./codes/*.cpp; do
-            g++ -std=c++11 -c ${filename} -o ${filename}.o;
-            g++ -std=c++11 ${filename}.o -o ${filename}.run;
-            ${filename}.run;
-            gcov -n -o ./codes/ ${filename} > /dev/null;
-            mv ${filename}.cpp.gcno ${filename}.gcno
-            rm -f ${filename}.run;
-            rm -f ${filename}.o;
-        done
+    - for filename in ./codes/*.cpp; do
+        ARGS="-std=c++11 -ftest-coverage -fprofile-arcs";
+        g++ $ARGS -c ${filename} -o ${filename}.o;
+        g++ $ARGS ${filename}.o -o ${filename}.run;
+        ${filename}.run;
+        mv ${filename}.gcno ${filename%.*}.gcno;
+        mv ${filename}.gcda ${filename%.*}.gcda;
+        gcov ${filename};
+        rm -f ${filename}.run;
+        rm -f ${filename}.o;
+        rm -f ${filename%.*}.gcno;
+        rm -f ${filename%.*}.gcda;
+      done
     - codecov
