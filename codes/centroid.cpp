@@ -1,14 +1,13 @@
 /* Centroid of a tree
  * Complexity: N
- * Input: g {graph} */
+ * Input: g {tree} */
 #include <bits/stdc++.h>
 using namespace std;
 
 #define MAX 100010
 
-int n, m;
 vector<int> g[MAX];
-int s[MAX], used[MAX];
+int n, s[MAX], used[MAX];
 
 int find_centroid(int v) {
     used[v] = 1;
@@ -30,13 +29,15 @@ int find_centroid(int v) {
 }
 
 main() {
-    cin >> n;
-    for (int i = 0; i < n-1; ++i) {
-        int a, b;
-        cin >> a >> b;
-        --a, --b;
-        g[a].push_back(b);
-        g[b].push_back(a);
-    }
-    cout << find_centroid(0)+1 << endl;
+    n = 8;
+    g[4] = { 3, 5 };
+    g[3] = { 4, 0, 1, 2 };
+    g[5] = { 4, 6, 7 };
+    g[0] = { 3 };
+    g[1] = { 3 };
+    g[2] = { 3 };
+    g[6] = { 5 };
+    g[7] = { 5 };
+
+    cout << find_centroid(0) << endl; //4
 }
