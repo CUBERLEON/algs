@@ -19,8 +19,9 @@ script:
     -   for filename in ./codes/*.cpp; do
             g++ -std=c++11 -c ${filename} -o ${filename}.o;
             g++ -std=c++11 ${filename}.o -o ${filename}.run;
-            ./codes/${filename}.run;
+            ${filename}.run;
             gcov -n -o ./codes/ ${filename} > /dev/null;
+            mv ${filename}.cpp.gcno ${filename}.gcno
             rm -f ${filename}.run;
             rm -f ${filename}.o;
         done
