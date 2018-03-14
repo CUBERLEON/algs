@@ -15,4 +15,4 @@
     - Centroid
     - Centroid decomposition
 - Utilities:
-    - Long arithmetics, big integer class
+    - Long arithmetic
