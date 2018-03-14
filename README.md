@@ -12,7 +12,7 @@
     - Radix sort
     - Heap sort
 - Graphs:
-    - Centroid
-    - Centroid decomposition
+    - Centroid of a tree
+    - Centroid decomposition of a tree
 - Utilities:
-    - Long arithmetic
+    - Long integer arithmetic
