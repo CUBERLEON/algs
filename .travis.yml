@@ -16,5 +16,6 @@ install:
     - sudo pip install codecov
 
 script:
+    - chmod +x ./run_tests.sh
     - ARGS_EXT="-ftest-coverage -fprofile-arcs" ./run_tests.sh SortTests.cpp InvertionsTests.cpp CentroidTests.cpp #CentroidDecompositionTests.cpp
     - codecov
