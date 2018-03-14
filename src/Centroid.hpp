@@ -1,7 +1,7 @@
 /* Centroid of a tree
  * Complexity: N
  * Input: g {tree} */
-#include <bits/stdc++.h>
+#include <vector>
 
 namespace Centroid
 {

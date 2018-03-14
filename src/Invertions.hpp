@@ -1,7 +1,7 @@
 /* Counts invertions in an 1-dimensional array
  * Invertion: a[i] > a[j], where i < j
  * Complexity: N*logN */
-#include <bits/stdc++.h>
+#include <cstring>
 
 namespace Invertions
 {

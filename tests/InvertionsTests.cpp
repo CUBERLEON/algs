@@ -1,5 +1,4 @@
 #include <catch.hpp>
-#include <bits/stdc++.h>
 
 #include <Invertions.hpp>
 

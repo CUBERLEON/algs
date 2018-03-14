@@ -1,16 +1,10 @@
 /* Sorting of an 1-dimensional array */
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <queue>
+#include <cstring>
 
 namespace Sort
 {
-    void Print(int* a, int n)
-    {
-        for (int i = 0; i < n; ++i)
-        {
-            std::printf("%d%c", a[i], i<n-1 ? ' ' : '\n');
-        }
-    }
-
     /* Bubble sort
      * Complexity: N^2 */
     void BubbleSort(int* a, int n)
@@ -131,8 +125,11 @@ namespace Sort
     {
         std::queue<int> m[10];
 
-        for (int c = 1; ; c *= 10)
+        int c = 1;
+        for (int pos = 0; pos <= 9; ++pos)
         {
+            c *= 10;
+
             int proceed = 0;
             for (int i = 0; i < n; ++i)
             {

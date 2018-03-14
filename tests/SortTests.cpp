@@ -1,5 +1,5 @@
 #include <catch.hpp>
-#include <bits/stdc++.h>
+#include <vector>
 
 #include <Sort.hpp>
 
@@ -24,7 +24,6 @@ TEST_CASE("Sort")
     SECTION("Insertion sort") { TestSort(Sort::InsertionSort); }
     SECTION("Merge sort")     { TestSort(Sort::MergeSort); }
     SECTION("Quick sort")     { TestSort(Sort::QuickSort); }
-    //TODO: infinite loop bug
-    //SECTION("Radix sort")     { TestSort(Sort::RadixSort); }
+    SECTION("Radix sort")     { TestSort(Sort::RadixSort); }
     SECTION("Heap sort")      { TestSort(Sort::HeapSort); }
 }
