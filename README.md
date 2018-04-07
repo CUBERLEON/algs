@@ -14,5 +14,7 @@
 - Graphs:
     - Centroid of a tree
     - Centroid decomposition of a tree
+- Strings:
+    - Prefix function: KMP
 - Utilities:
     - Long integer arithmetic
