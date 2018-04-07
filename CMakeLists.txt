@@ -24,6 +24,7 @@ SET(TESTS_FILES main.cpp
 				InvertionsTests.cpp
 				CentroidTests.cpp
 				CentroidDecompositionTests.cpp
+				KMPTests.cpp
 	)
 PREPEND(TESTS_FILES ${TESTS_DIR} ${TESTS_FILES})
 
