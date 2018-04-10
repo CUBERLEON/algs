@@ -51,7 +51,7 @@ vector<int> KMP1(const string& needle, const string& text)
 }
 
 /*
- * KMP: improved memory consumption
+ * KMP 2: improved memory consumption
  * Complexity: O(N+M) - time, O(N) - space
  */
 vector<int> KMP2(string needle, const string& text)

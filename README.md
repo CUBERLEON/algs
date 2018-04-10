@@ -16,5 +16,7 @@
     - Centroid decomposition of a tree
 - Strings:
     - Prefix function: KMP
+- Data structures:
+    - Sqrt decomposition: assignment, addition on a range, summation
 - Utilities:
     - Long integer arithmetic
