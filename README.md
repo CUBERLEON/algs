@@ -3,14 +3,6 @@
 [![codecov](https://codecov.io/gh/CUBERLEON/algs/branch/master/graph/badge.svg)](https://codecov.io/gh/CUBERLEON/algs)
 
 ## Contents
-- Sorting:
-    - [x] Bubble sort
-    - [x] Selection sort
-    - [x] Insertion sort
-    - [x] Merge sort
-    - [x] Quick sort
-    - [x] Radix sort
-    - [x] Heap sort
 - Graphs:
     - [ ] DFS
     - [ ] BFS
@@ -49,3 +41,4 @@
 - Other:
     - [x] Long integer arithmetic
     - [x] Count invertions
+    - [x] Sort: Bubble, Selection, Insertion, Merge, Quick, Radix, Heap
