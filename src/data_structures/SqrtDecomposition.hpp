@@ -9,7 +9,7 @@ public:
     {}
 
     // Complexity: O(1) - time & space
-    void Assign(size_t index, int value)
+    void assign(size_t index, int value)
     {
         size_t block = index / len;
         assert(block < len);
@@ -20,7 +20,7 @@ public:
     }
 
     // Complexity: O(sqrt(N)) - time, O(1) - space
-    void AddOnRange(size_t left, size_t right, int value)
+    void add_on_range(size_t left, size_t right, int value)
     {
         assert(0 <= left && left <= right && right < arr.size());
 
@@ -56,7 +56,7 @@ public:
     }
 
     // Complexity: O(sqrt(N)) - time, O(1) - space
-    int QuerySum(size_t left, size_t right)
+    int sum(size_t left, size_t right)
     {
         int result = 0;
 
@@ -96,5 +96,5 @@ private:
 
     int len;
     vector<int> sum_blocks;
-    vector<int> add_blocks; // required for AddOnRange
+    vector<int> add_blocks; // required for add_on_range
 };

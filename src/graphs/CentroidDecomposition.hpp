@@ -6,7 +6,7 @@ constexpr int MAX = 100010;
 int s[MAX];
 bool used[MAX], is_centroid[MAX];
 
-int FindCentroid(const vector<vector<int>>& g, int n, int v = 0)
+int find_centroid(const vector<vector<int>>& g, int n, int v = 0)
 {
     used[v] = true;
     s[v] = 1;
@@ -17,7 +17,7 @@ int FindCentroid(const vector<vector<int>>& g, int n, int v = 0)
         int to = g[v][i];
         if (used[to] || is_centroid[to]) continue;
 
-        int t = FindCentroid(g, n, to);
+        int t = find_centroid(g, n, to);
         if (t != -1) return t;
 
         s[v] += s[to];
@@ -28,7 +28,7 @@ int FindCentroid(const vector<vector<int>>& g, int n, int v = 0)
     return (centroid ? v : -1);
 }
 
-int CountVertices(const vector<vector<int>>& g, int v) {
+int count_vertices(const vector<vector<int>>& g, int v) {
     int ans = 1;
     used[v] = true;
 
@@ -36,18 +36,18 @@ int CountVertices(const vector<vector<int>>& g, int v) {
     {
         int to = g[v][i];
         if (used[to] || is_centroid[to]) continue;
-        ans += CountVertices(g, to);
+        ans += count_vertices(g, to);
     }
     return ans;
 }
 
-int Decompose(const vector<vector<int>>& g, vector<vector<int>>& dg, int start = 0)
+int decompose(const vector<vector<int>>& g, vector<vector<int>>& dg, int start = 0)
 {
     memset(used, 0, sizeof used);
-    int cnt = CountVertices(g, start);
+    int cnt = count_vertices(g, start);
 
     memset(used, 0, sizeof used);
-    int v = FindCentroid(g, cnt, start);
+    int v = find_centroid(g, cnt, start);
     is_centroid[v] = true;
 
     for (size_t i = 0; i < g[v].size(); ++i)
@@ -55,7 +55,7 @@ int Decompose(const vector<vector<int>>& g, vector<vector<int>>& dg, int start =
         int to = g[v][i];
         if (!is_centroid[to])
         {
-            int sub_v = Decompose(g, dg, to);
+            int sub_v = decompose(g, dg, to);
 
             dg[v].push_back(sub_v);
             dg[sub_v].push_back(v);

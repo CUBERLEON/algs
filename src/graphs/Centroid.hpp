@@ -5,7 +5,7 @@ constexpr int MAX = 100010;
 
 int s[MAX], used[MAX];
 
-int FindCentroid(const vector<vector<int>>& g, int v = 0)
+int find_centroid(const vector<vector<int>>& g, int v = 0)
 {
     int n = g.size();
 
@@ -16,7 +16,7 @@ int FindCentroid(const vector<vector<int>>& g, int v = 0)
         int to = g[v][i];
         if (used[to]) continue;
 
-        int t = FindCentroid(g, to);
+        int t = find_centroid(g, to);
         if (t != -1) return t;
 
         s[v] += s[to];

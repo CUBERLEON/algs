@@ -6,14 +6,14 @@ using namespace std;
 
 namespace
 {
-    #include <KMP.hpp>
+    #include <strings/KMP.hpp>
 
     TEST_CASE("Prefix function")
     {
         string s = "abcabcd";
         vector<int> expected = { 0, 0, 0, 1, 2, 3, 0 };
 
-        REQUIRE(PrefixValues(s) == expected);
+        REQUIRE(prefix_values(s) == expected);
     }
 
     TEST_CASE("KMP")
@@ -24,12 +24,12 @@ namespace
 
         SECTION("KMP 1")
         {
-            REQUIRE(KMP1(needle, text) == expected);
+            REQUIRE(kmp_1(needle, text) == expected);
         }
 
         SECTION("KMP 2")
         {
-            REQUIRE(KMP2(needle, text) == expected);
+            REQUIRE(kmp_2(needle, text) == expected);
         }
     }
 }

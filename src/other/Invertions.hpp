@@ -1,7 +1,7 @@
 /* Counts invertions in an 1-dimensional array
  * Invertion: a[i] > a[j], where i < j
  * Complexity: N*logN */
-int Merge(int* a, int n1, int n2)
+int merge(int* a, int n1, int n2)
 {
     int* m = new int[n1+n2];
 
@@ -23,15 +23,15 @@ int Merge(int* a, int n1, int n2)
     return ans;
 }
 
-int CountInvertions(int* a, int n)
+int count_invertions(int* a, int n)
 {
     int ans = 0;
     if (n > 1)
     {
         int n1 = n/2, n2 = n-n1;
-        ans += CountInvertions(a, n1);
-        ans += CountInvertions(a+n1, n2);
-        ans += Merge(a, n1, n2);
+        ans += count_invertions(a, n1);
+        ans += count_invertions(a+n1, n2);
+        ans += merge(a, n1, n2);
     }
     return ans;
 }

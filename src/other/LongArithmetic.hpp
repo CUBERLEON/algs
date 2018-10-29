@@ -1,5 +1,5 @@
 // x >= 0
-vector<int> Create(int x)
+vector<int> create(int x)
 {
     vector<int> res;
 
@@ -14,7 +14,7 @@ vector<int> Create(int x)
 }
 
 // x >= 0
-vector<int> Create(const string& x)
+vector<int> create(const string& x)
 {
     vector<int> res;
 
@@ -28,7 +28,7 @@ vector<int> Create(const string& x)
 }
 
 // x >= 0
-string ToString(const vector<int>& x)
+string to_string(const vector<int>& x)
 {
     string res;
 
@@ -42,7 +42,7 @@ string ToString(const vector<int>& x)
 }
 
 // b >= 0
-vector<int> Multiply(const vector<int>& a, int b)
+vector<int> multiply(const vector<int>& a, int b)
 {
     vector<int> res(a.size());
 
@@ -66,7 +66,7 @@ vector<int> Multiply(const vector<int>& a, int b)
 }
 
 // a >= b
-vector<int> Subtract(const vector<int>& a, const vector<int>& b)
+vector<int> subtract(const vector<int>& a, const vector<int>& b)
 {
     vector<int> res(a);
 

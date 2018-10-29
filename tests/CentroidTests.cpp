@@ -5,7 +5,7 @@ using namespace std;
 
 namespace
 {
-    #include <Centroid.hpp>
+    #include <graphs/Centroid.hpp>
 
     TEST_CASE("Centroid")
     {
@@ -21,6 +21,6 @@ namespace
         g[6] = { 5 };
         g[7] = { 5 };
 
-        REQUIRE(FindCentroid(g) == 4);
+        REQUIRE(find_centroid(g) == 4);
     }
 }

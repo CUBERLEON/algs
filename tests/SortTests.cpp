@@ -6,7 +6,7 @@
 #include <cstring>
 using namespace std;
 
-#define TestSort(type) \
+#define test_sort(type) \
 { \
     copy = orig; \
     type(copy.data(), N); \
@@ -15,7 +15,7 @@ using namespace std;
 
 namespace
 {
-    #include <Sort.hpp>
+    #include <sorting/Sort.hpp>
 
     const int N = 200;
 
@@ -26,12 +26,12 @@ namespace
         target = orig;
         sort(target.begin(), target.end());
 
-        SECTION("Bubble sort")    { TestSort(BubbleSort); }
-        SECTION("Selection sort") { TestSort(SelectionSort); }
-        SECTION("Insertion sort") { TestSort(InsertionSort); }
-        SECTION("Merge sort")     { TestSort(MergeSort); }
-        SECTION("Quick sort")     { TestSort(QuickSort); }
-        SECTION("Radix sort")     { TestSort(RadixSort); }
-        SECTION("Heap sort")      { TestSort(HeapSort); }
+        SECTION("Bubble sort")    { test_sort(bubble_sort); }
+        SECTION("Selection sort") { test_sort(selection_sort); }
+        SECTION("Insertion sort") { test_sort(insertion_sort); }
+        SECTION("Merge sort")     { test_sort(merge_sort); }
+        SECTION("Quick sort")     { test_sort(quick_sort); }
+        SECTION("Radix sort")     { test_sort(radix_sort); }
+        SECTION("Heap sort")      { test_sort(heap_sort); }
     }
 }

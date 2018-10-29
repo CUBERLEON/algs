@@ -1,6 +1,6 @@
 /* Bubble sort
  * Complexity: N^2 */
-void BubbleSort(int* a, int n)
+void bubble_sort(int* a, int n)
 {
     for (int k = 0; ; ++k)
     {
@@ -19,7 +19,7 @@ void BubbleSort(int* a, int n)
 
 /* Selection sort
  * Complexity: N^2 */
-void SelectionSort(int* a, int n)
+void selection_sort(int* a, int n)
 {
     for (int i = 0; i < n; ++i)
     {
@@ -37,7 +37,7 @@ void SelectionSort(int* a, int n)
 
 /* Insertion sort
  * Complexity: N^2 */
-void InsertionSort(int* a, int n)
+void insertion_sort(int* a, int n)
 {
     for (int i = 1; i < n; ++i)
     {
@@ -50,7 +50,7 @@ void InsertionSort(int* a, int n)
 
 /* Merge sort
  * Complexity: N*logN */
-void Merge(int* a, int n1, int n2)
+void merge(int* a, int n1, int n2)
 {
     int* m = new int[n1+n2];
     int i = 0, j = 0;
@@ -71,21 +71,21 @@ void Merge(int* a, int n1, int n2)
     delete[] m;
 }
 
-void MergeSort(int* a, int n)
+void merge_sort(int* a, int n)
 {
     if (n < 2) return;
 
     int n1 = n/2, n2 = n-n1;
 
-    MergeSort(a, n1);
-    MergeSort(a+n1, n2);
+    merge_sort(a, n1);
+    merge_sort(a+n1, n2);
 
-    Merge(a, n1, n2);
+    merge(a, n1, n2);
 }
 
 /* Quick sort
  * Complexity: N*logN */
-int Partition(int* a, int n)
+int partition(int* a, int n)
 {
     swap(a[rand() % n], a[n-1]);
     int x = a[n-1];
@@ -102,19 +102,19 @@ int Partition(int* a, int n)
     return pivot; //pivot cannot be negative (at least one swap is performed when i=n-1)
 }
 
-void QuickSort(int* a, int n)
+void quick_sort(int* a, int n)
 {
     if (n <= 0) return;
 
-    int pivot = Partition(a, n);
+    int pivot = partition(a, n);
 
-    QuickSort(a, pivot);
-    QuickSort(a + pivot+1, n - (pivot+1));
+    quick_sort(a, pivot);
+    quick_sort(a + pivot+1, n - (pivot+1));
 }
 
 /* Radix sort
  * Complexity: N*R, R - size of the radix, R=10 */
-void RadixSort(int* a, int n)
+void radix_sort(int* a, int n)
 {
     queue<int> m[10];
 
@@ -147,7 +147,7 @@ void RadixSort(int* a, int n)
 
 /* Heap sort
  * Complexity: N*logN */
-void Heapify(int* a, int pos, int n)
+void heapify(int* a, int pos, int n)
 {
     int l = 2*pos+1, r = l+1, p = (pos-1)/2; //left, right children and parent indices
 
@@ -175,18 +175,18 @@ void Heapify(int* a, int pos, int n)
     }
 }
 
-void HeapSort(int* a, int n)
+void heap_sort(int* a, int n)
 {
     //building a heap
     for (int i = 1; i < n; ++i)
     {
-        Heapify(a, i, i+1);
+        heapify(a, i, i+1);
     }
 
     //extracting largest elements and shrinking the heap
     for (int i = n-1; i >= 1; --i)
     {
         swap(a[i], a[0]);
-        Heapify(a, 0, i);
+        heapify(a, 0, i);
     }
 }

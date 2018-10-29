@@ -1,12 +1,12 @@
 /*
- * Finds all entries of a needle to a text (start indices in the text)
+ * Finds all entries of a needle in a text (start indices)
  */
 
 /*
  * Computes prefix function of a string
  * Complexity: O(N)
  */
-vector<int> PrefixValues(const string& s)
+vector<int> prefix_values(const string& s)
 {
     int n = s.size();
     vector<int> res(n, 0);
@@ -29,14 +29,14 @@ vector<int> PrefixValues(const string& s)
  * KMP 1: not optimized
  * Complexity: O(N+M) - time & space
  */
-vector<int> KMP1(const string& needle, const string& text)
+vector<int> kmp_1(const string& needle, const string& text)
 {
     int n = needle.size();
     if (!n) return {};
 
     int m = text.size();
 
-    auto max_prefixes = PrefixValues(needle + "#" + text);
+    auto max_prefixes = prefix_values(needle + "#" + text);
     vector<int> res;
 
     for (int i = n + 1; i < max_prefixes.size(); ++i)
@@ -54,14 +54,14 @@ vector<int> KMP1(const string& needle, const string& text)
  * KMP 2: improved memory consumption
  * Complexity: O(N+M) - time, O(N) - space
  */
-vector<int> KMP2(string needle, const string& text)
+vector<int> kmp_2(string needle, const string& text)
 {
     int n = needle.size();
     if (!n) return {};
 
     int m = text.size();
 
-    auto max_prefixes = PrefixValues(needle);
+    auto max_prefixes = prefix_values(needle);
 
     vector<int> res;
 
