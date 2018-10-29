@@ -4,19 +4,48 @@
 
 ## Contents
 - Sorting:
-    - Bubble sort
-    - Selection sort
-    - Insertion sort
-    - Merge sort
-    - Quick sort
-    - Radix sort
-    - Heap sort
+    - [x] Bubble sort
+    - [x] Selection sort
+    - [x] Insertion sort
+    - [x] Merge sort
+    - [x] Quick sort
+    - [x] Radix sort
+    - [x] Heap sort
 - Graphs:
-    - Centroid of a tree
-    - Centroid decomposition of a tree
+    - [ ] DFS
+    - [ ] BFS
+    - [ ] Shortest path: Dijkstra
+    - [ ] Shortest path: Bellman-Ford
+    - [ ] Shortest path: Floyd-Warshall
+    - [ ] Connected components
+    - [ ] Bridges
+    - [ ] Flow: Ford–Fulkerson
+    - [ ] Matching
+    - [ ] Minimal spanning tree: Kruskal
+    - [ ] Minimal spanning tree: Prim
+    - [x] Centroid of a tree
+    - [x] Centroid decomposition of a tree
 - Strings:
-    - Prefix function: KMP
+    - [ ] Hashing
+    - [ ] Expression parsing: Inverse polish notation
+    - [ ] Suffix array
+    - [ ] Suffic tree
+    - [ ] Suffix automata
+    - [ ] Pattern matching: KMP
+    - [ ] Pattern matching: Aho-Corasick
 - Data structures:
-    - Sqrt decomposition: assignment, addition on a range, summation
-- Utilities:
-    - Long integer arithmetic
+    - [ ] Trie
+    - [x] Sqrt decomposition
+    - [ ] Segment tree
+    - [ ] B-tree
+    - [ ] Red-black tree
+    - [ ] KD tree
+    - [ ] Splay tree
+    - [ ] Cartesian tree
+    - [ ] AVL tree
+- Dynamic programming:
+    - [ ] With profile
+    - [ ] Convex hull trick
+- Other:
+    - [x] Long integer arithmetic
+    - [x] Count invertions
