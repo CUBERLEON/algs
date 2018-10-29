@@ -1,13 +1,5 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
 
-FUNCTION(PREPEND var prefix)
-    SET(listVar "")
-    FOREACH(f ${ARGN})
-        LIST(APPEND listVar "${prefix}/${f}")
-    ENDFOREACH(f)
-    SET(${var} "${listVar}" PARENT_SCOPE)
-ENDFUNCTION(PREPEND)
-
 PROJECT(Algs)
 
 SET(CMAKE_CXX_STANDARD 14)
@@ -19,16 +11,7 @@ SET(SRC_DIR ${CMAKE_SOURCE_DIR}/src)
 SET(LIBS_DIR ${CMAKE_SOURCE_DIR}/deps)
 SET(TESTS_DIR ${CMAKE_SOURCE_DIR}/tests)
 
-SET(TESTS_FILES main.cpp
-                SortTests.cpp
-                InvertionsTests.cpp
-                CentroidTests.cpp
-                CentroidDecompositionTests.cpp
-                KMPTests.cpp
-                LongArithmeticTests.cpp
-                SqrtDecompositionTests.cpp
-	)
-PREPEND(TESTS_FILES ${TESTS_DIR} ${TESTS_FILES})
+FILE(GLOB TESTS_FILES "${TESTS_DIR}/*.cpp")
 
 INCLUDE_DIRECTORIES(${LIBS_DIR}/catch)
 INCLUDE_DIRECTORIES(${SRC_DIR})
