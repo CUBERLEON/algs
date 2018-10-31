@@ -15,7 +15,7 @@ using namespace std;
 
 namespace
 {
-    #include <sorting/Sort.hpp>
+    #include <utility/Sort.hpp>
 
     const int N = 200;
 

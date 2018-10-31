@@ -23,10 +23,10 @@
     - [ ] Suffix array
     - [ ] Suffic tree
     - [ ] Suffix automata
-    - [ ] Pattern matching: KMP
+    - [x] Pattern matching: KMP
     - [ ] Pattern matching: Aho-Corasick
 - Data structures:
-    - [ ] Trie
+    - [x] Trie
     - [x] Sqrt decomposition
     - [ ] Segment tree
     - [ ] B-tree
@@ -38,7 +38,7 @@
 - Dynamic programming:
     - [ ] With profile
     - [ ] Convex hull trick
-- Other:
+- Utility:
     - [x] Long integer arithmetic
     - [x] Count invertions
     - [x] Sort: Bubble, Selection, Insertion, Merge, Quick, Radix, Heap

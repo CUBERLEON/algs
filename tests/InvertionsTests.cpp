@@ -5,7 +5,7 @@ using namespace std;
 
 namespace
 {
-    #include <other/Invertions.hpp>
+    #include <utility/Invertions.hpp>
 
     TEST_CASE("Invertions")
     {
