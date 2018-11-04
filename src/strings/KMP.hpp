@@ -1,9 +1,7 @@
-/*
- * Finds all entries of a needle in a text (start indices)
+/* Finds all entries of a needle in a text (start indices)
  */
 
-/*
- * Computes prefix function of a string
+/* Computes prefix function of a string
  * Complexity: O(N)
  */
 vector<int> prefix_values(const string& s)
@@ -25,8 +23,7 @@ vector<int> prefix_values(const string& s)
     return res;
 }
 
-/*
- * KMP 1: not optimized
+/* KMP 1: not optimized
  * Complexity: O(N+M) - time & space
  */
 vector<int> kmp_1(const string& needle, const string& text)
@@ -50,8 +47,7 @@ vector<int> kmp_1(const string& needle, const string& text)
     return res;
 }
 
-/*
- * KMP 2: improved memory consumption
+/* KMP 2: improved memory consumption
  * Complexity: O(N+M) - time, O(N) - space
  */
 vector<int> kmp_2(string needle, const string& text)

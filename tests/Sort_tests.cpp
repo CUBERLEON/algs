@@ -17,7 +17,7 @@ namespace
 {
     #include <utility/Sort.hpp>
 
-    const int N = 200;
+    const int N = 1000;
 
     TEST_CASE("Sort")
     {

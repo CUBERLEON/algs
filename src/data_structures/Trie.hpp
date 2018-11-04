@@ -59,11 +59,6 @@ private:
             if (!cur->child[c - 'a']) return false;
             cur = cur->child[c - 'a'];
         }
-        if (match_word)
-        {
-            return cur->word_end;
-        }
-        return true;
-        // return !match_word || cur->word_end;
+        return !match_word || cur->word_end;
     }
 };

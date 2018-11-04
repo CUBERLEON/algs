@@ -1,5 +1,6 @@
 /* Bubble sort
- * Complexity: N^2 */
+ * Complexity: O(N^2) - time, O(1) - space
+ */
 void bubble_sort(int* a, int n)
 {
     for (int k = 0; ; ++k)
@@ -18,7 +19,8 @@ void bubble_sort(int* a, int n)
 }
 
 /* Selection sort
- * Complexity: N^2 */
+ * Complexity: O(N^2) - time, O(1) - space
+ */
 void selection_sort(int* a, int n)
 {
     for (int i = 0; i < n; ++i)
@@ -36,7 +38,8 @@ void selection_sort(int* a, int n)
 }
 
 /* Insertion sort
- * Complexity: N^2 */
+ * Complexity: O(N^2) - time, O(1) - space
+ */
 void insertion_sort(int* a, int n)
 {
     for (int i = 1; i < n; ++i)
@@ -49,7 +52,8 @@ void insertion_sort(int* a, int n)
 }
 
 /* Merge sort
- * Complexity: N*logN */
+ * Complexity: O(N*Log(N)) - time, O(N) - space
+ */
 void merge(int* a, int n1, int n2)
 {
     int* m = new int[n1+n2];
@@ -84,10 +88,13 @@ void merge_sort(int* a, int n)
 }
 
 /* Quick sort
- * Complexity: N*logN */
+ * Complexity: O(N*Log(N)) - time, O(1) - space
+ */
 int partition(int* a, int n)
 {
-    swap(a[rand() % n], a[n-1]);
+    int rand_index = rand() % n;
+    swap(a[rand_index], a[n-1]);
+
     int x = a[n-1];
     int pivot = -1;
 
@@ -99,7 +106,7 @@ int partition(int* a, int n)
         }
     }
 
-    return pivot; //pivot cannot be negative (at least one swap is performed when i=n-1)
+    return pivot; // pivot cannot be negative (at least one swap is performed when i=n-1)
 }
 
 void quick_sort(int* a, int n)
@@ -113,7 +120,9 @@ void quick_sort(int* a, int n)
 }
 
 /* Radix sort
- * Complexity: N*R, R - size of the radix, R=10 */
+ * Complexity: O(N*R) - time, O(N+R) - space, where R - size of the radix
+ * R=10
+ */
 void radix_sort(int* a, int n)
 {
     queue<int> m[10];
@@ -146,21 +155,12 @@ void radix_sort(int* a, int n)
 }
 
 /* Heap sort
- * Complexity: N*logN */
+ * Complexity: O(N*Log(N)) - time, O(N) - space
+ */
 void heapify(int* a, int pos, int n)
 {
-    int l = 2*pos+1, r = l+1, p = (pos-1)/2; //left, right children and parent indices
+    int l = 2*pos+1, r = l+1;
 
-    //going up
-    while (pos > 0 && a[p] < a[pos])
-    {
-        swap(a[p], a[pos]);
-        pos = p;
-
-        p = (pos-1)/2;
-    }
-
-    //going down
     while (l < n)
     {
         int next = pos;
@@ -177,13 +177,13 @@ void heapify(int* a, int pos, int n)
 
 void heap_sort(int* a, int n)
 {
-    //building a heap
-    for (int i = 1; i < n; ++i)
+    // building a heap
+    for (int i = n/2; i >= 0; --i)
     {
-        heapify(a, i, i+1);
+        heapify(a, i, n);
     }
 
-    //extracting largest elements and shrinking the heap
+    // extracting largest elements and shrinking the heap
     for (int i = n-1; i >= 1; --i)
     {
         swap(a[i], a[0]);

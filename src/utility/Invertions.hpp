@@ -1,6 +1,7 @@
 /* Counts invertions in an 1-dimensional array
  * Invertion: a[i] > a[j], where i < j
- * Complexity: N*logN */
+ * Complexity: N*Log(N)
+ */
 int merge(int* a, int n1, int n2)
 {
     int* m = new int[n1+n2];

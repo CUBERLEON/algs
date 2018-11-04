@@ -26,7 +26,7 @@ pair<size_t, size_t> gen_range(size_t n)
 
 namespace
 {
-    #include <data_structures/SqrtDecomposition.hpp>
+    #include <data_structures/Sqrt_decomp.hpp>
 
     TEST_CASE("Sqrt decomposition")
     {
@@ -34,7 +34,7 @@ namespace
 
         SECTION("Small input data")
         {
-            SqrtSum a1(20);
+            Sqrt_sum a1(20);
 
             a1.add_on_range(0, 4, 1);
             a1.add_on_range(2, 4, 2);
@@ -48,7 +48,7 @@ namespace
         constexpr int num_queries = 100;
         constexpr int mod = 100;
 
-        SqrtSum a_sqrt(n);
+        Sqrt_sum a_sqrt(n);
         vector<int> a(n);
 
         SECTION("Add on range")

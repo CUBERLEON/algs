@@ -1,6 +1,7 @@
 /* Centroid of a tree
- * Complexity: N
- * Input: g {tree} */
+ * Complexity: O(N) - time, O(N) - space
+ * Input: g {tree}
+ */
 constexpr int MAX = 100010;
 
 int s[MAX], used[MAX];

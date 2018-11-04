@@ -1,6 +1,7 @@
 /* Centroid decomposition of a tree
- * Complexity: N*logN
- * Input: g {tree}; Output: dg {rooted tree} */
+ * Complexity: N*Log(N)
+ * Input: g {tree}; Output: dg {rooted tree}
+ */
 constexpr int MAX = 100010;
 
 int s[MAX];

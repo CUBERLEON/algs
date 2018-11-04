@@ -1,7 +1,7 @@
-class SqrtSum
+class Sqrt_sum
 {
 public:
-    SqrtSum(size_t n)
+    Sqrt_sum(size_t n)
     : arr(n, 0)
     , len(ceil(sqrt(n)))
     , sum_blocks(len, 0)

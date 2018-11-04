@@ -7,7 +7,7 @@ using namespace std;
 
 namespace
 {
-    #include <graphs/CentroidDecomposition.hpp>
+    #include <graphs/Centroid_decomp.hpp>
 
     void add_edge(vector<vector<int>>& g, int v1, int v2)
     {

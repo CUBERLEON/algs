@@ -6,7 +6,7 @@ using namespace std;
 
 namespace
 {
-    #include <utility/LongArithmetic.hpp>
+    #include <utility/Long_arithmetic.hpp>
 
     TEST_CASE("Long integer arithmetic")
     {

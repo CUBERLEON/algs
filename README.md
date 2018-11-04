@@ -6,7 +6,7 @@
 - Graphs:
     - [ ] DFS
     - [ ] BFS
-    - [ ] Shortest path: Dijkstra
+    - [x] Shortest path: Dijkstra
     - [ ] Shortest path: Bellman-Ford
     - [ ] Shortest path: Floyd-Warshall
     - [ ] Connected components
