@@ -3,6 +3,7 @@
 #include <vector>
 #include <cstring>
 #include <set>
+#include <queue>
 #include <graph/Common.hpp>
 using namespace std;
 
@@ -15,6 +16,11 @@ void add_edge(vector<vector<int>>& g, int v1, int v2)
 namespace DFS
 {
     #include <graph/DFS.hpp>
+}
+
+namespace BFS
+{
+    #include <graph/BFS.hpp>
 }
 
 namespace Dijkstra

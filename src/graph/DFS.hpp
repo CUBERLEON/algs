@@ -3,16 +3,16 @@
  */
 constexpr int MAX = 10000;
 
-int used[MAX];
+int visited[MAX];
 
 void dfs(vector<vector<int>>& g, int v)
 {
-    used[v] = true;
+    visited[v] = true;
 
     for (size_t i = 0; i < g[v].size(); ++i)
     {
         int to = g[v][i];
-        if (used[to]) continue;
+        if (visited[to]) continue;
 
         dfs(g, to);
     }

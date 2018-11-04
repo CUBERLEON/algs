@@ -4,8 +4,8 @@
 
 ## Contents
 - Graphs:
-    - [ ] DFS
-    - [ ] BFS
+    - [x] DFS
+    - [x] BFS
     - [x] Shortest path: Dijkstra
     - [ ] Shortest path: Bellman-Ford
     - [ ] Shortest path: Floyd-Warshall
