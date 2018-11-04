@@ -1,15 +1,8 @@
 class Trie
 {
 public:
-    Trie()
-    {
-        root = new Node();
-    }
-
-    ~Trie()
-    {
-        delete root;
-    }
+    Trie() : root(new Node()) {}
+    ~Trie() { delete root; }
 
     void insert(const string& word)
     {
@@ -22,15 +15,8 @@ public:
         cur->word_end = true;
     }
 
-    bool search(const string& word)
-    {
-        return search_aux(word, true);
-    }
-
-    bool search_prefix(const string& prefix)
-    {
-        return search_aux(prefix, false);
-    }
+    bool search(const string& word) { return search_aux(word, true); }
+    bool search_prefix(const string& prefix) { return search_aux(prefix, false); }
 
 private:
     struct Node
