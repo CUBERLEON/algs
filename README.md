@@ -28,6 +28,7 @@
 - Data structures:
     - [x] Trie
     - [x] Sqrt decomposition
+    - [x] Disjoint-set
     - [ ] Segment tree
     - [ ] Cartesian tree
     - [ ] KD tree

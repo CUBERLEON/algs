@@ -23,6 +23,11 @@ pair<size_t, size_t> gen_range(size_t n)
     return { left, right };
 }
 
+namespace Disjoint_set
+{
+    #include <data_structure/Disjoint_set.hpp>
+}
+
 namespace Sqrt_decomp
 {
     #include <data_structure/Sqrt_decomp.hpp>
