@@ -2,14 +2,8 @@
  * This implementation uses `set` to get the vertex with smallest distance at each iteration of the algorithm.
  * Complexity: O(M*Log(N)) - time, O(N) - space, where M - # of edges, N - # of vertices
  */
- 
-struct Edge
-{
-    int vert;
-    int dist;
-};
 
-vector<int> dijkstra(const vector<vector<Edge>>& g, int origin)
+vector<int> dijkstra(const vector<vector<WeightedEdge>>& g, int origin)
 {
     int n = g.size();
 
@@ -29,10 +23,10 @@ vector<int> dijkstra(const vector<vector<Edge>>& g, int origin)
 
         for (int i = 0; i < g[cur].size(); ++i)
         {
-            int to = g[cur][i].vert;
+            int to = g[cur][i].vertex;
             if (found_dist[to]) continue;
             
-            int new_dist = best_dist[cur] + g[cur][i].dist;
+            int new_dist = best_dist[cur] + g[cur][i].distance;
             if (new_dist < best_dist[to])
             {
                 auto it = q.find({best_dist[to], to});
