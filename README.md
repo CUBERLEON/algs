@@ -29,12 +29,12 @@
     - [x] Trie
     - [x] Sqrt decomposition
     - [ ] Segment tree
-    - [ ] B-tree
-    - [ ] Red-black tree
-    - [ ] KD tree
-    - [ ] Splay tree
     - [ ] Cartesian tree
-    - [ ] AVL tree
+    - [ ] KD tree
+    - [ ] Balanced tree: B-tree
+    - [ ] Balanced BST: Red-black tree
+    - [ ] Balanced BST: AVL tree
+    - [ ] Splay tree
 - Dynamic programming:
     - [ ] With profile
     - [ ] Convex hull trick
