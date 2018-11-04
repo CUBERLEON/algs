@@ -1,7 +1,7 @@
 /* Finds group id to which a vertex belongs
  * Complexity: O(1) - time & space
  */
-int find(vector<int> parent, int vert)
+int find(vector<int>& parent, int vert)
 {
     if (parent[vert] == vert) return vert;
     return parent[vert] = find(parent, parent[vert]);
@@ -10,7 +10,7 @@ int find(vector<int> parent, int vert)
 /* Unites two groups to which two vertices belongs
  * Complexity: O(1) - time & space
  */
-bool unite(vector<int> parent, int vert_a, int vert_b)
+bool unite(vector<int>& parent, int vert_a, int vert_b)
 {
     int group_a = find(parent, vert_a), group_b = find(parent, vert_b);
     if (group_a == group_b) return false;

@@ -1,5 +1,5 @@
 /* Depth first search graph traversal
- * Complexity: O(N+M) - time, O(N) - space
+ * Complexity: O(V+E) - time, O(V) - space
  */
 constexpr int MAX = 10000;
 

@@ -1,5 +1,5 @@
 /* Centroid of a tree
- * Complexity: O(N) - time, O(N) - space
+ * Complexity: O(V+E) - time, O(V) - space
  * Input: g {tree}
  */
 constexpr int MAX = 100010;

@@ -1,9 +1,13 @@
 /* Finds shortest distance from an origin vertex to all other vertices.
  * This implementation uses `set` to get the vertex with smallest distance at each iteration of the algorithm.
- * Complexity: O(M*Log(N)) - time, O(N) - space, where M - # of edges, N - # of vertices
+ * Complexity: O(E*Log(V)) - time, O(V) - space
  */
+struct Edge
+{
+    int to, distance;
+};
 
-vector<int> dijkstra(const vector<vector<WeightedEdge>>& g, int origin)
+vector<int> dijkstra(const vector<vector<Edge>>& g, int origin)
 {
     int n = g.size();
 
@@ -23,7 +27,7 @@ vector<int> dijkstra(const vector<vector<WeightedEdge>>& g, int origin)
 
         for (int i = 0; i < g[cur].size(); ++i)
         {
-            int to = g[cur][i].vertex;
+            int to = g[cur][i].to;
             if (found_dist[to]) continue;
             
             int new_dist = best_dist[cur] + g[cur][i].distance;

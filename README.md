@@ -13,7 +13,7 @@
     - [ ] Bridges
     - [ ] Flow: Ford–Fulkerson
     - [ ] Matching
-    - [ ] Minimal spanning tree: Kruskal
+    - [x] Minimal spanning tree: Kruskal
     - [ ] Minimal spanning tree: Prim
     - [x] Centroid of a tree
     - [x] Centroid decomposition of a tree
