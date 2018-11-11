@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <string>
 #include <cassert>
+#include <iostream>
 using namespace std;
 
 int sum(const vector<int>& a, size_t left, size_t right)
@@ -23,9 +24,98 @@ pair<size_t, size_t> gen_range(size_t n)
     return { left, right };
 }
 
+template<typename T>
+void test_range_queries()
+{
+    srand(time(NULL));
+
+    SECTION("Small input data")
+    {
+        T a(20);
+        a.assign(3, 15);
+        a.assign(0, 3);
+        a.assign(9, 11);
+
+        REQUIRE(a.get(0) == 3);
+        REQUIRE(a.get(3) == 15);
+        REQUIRE(a.get(5) == 0);
+        REQUIRE(a.get(9) == 11);
+
+        REQUIRE(a.sum(0, 19) == 29);
+
+        a.add_on_range(0, 5, 2);
+
+        REQUIRE(a.get(0) == 5);
+        REQUIRE(a.get(3) == 17);
+        REQUIRE(a.get(5) == 2);
+        REQUIRE(a.get(9) == 11);
+
+        REQUIRE(a.sum(0, 19) == 41);
+
+        a.add_on_range(0, 4, 1);
+        a.add_on_range(2, 4, 2);
+        a.add_on_range(1, 3, 3);
+        a.add_on_range(0, 3, 2);
+        REQUIRE(a.sum(0, 4) == 56);
+        REQUIRE(a.sum(0, 0) == 8);
+    }
+
+    constexpr int n = 1000;
+    constexpr int num_queries = 1000;
+    constexpr int mod = 1000;
+
+    T ds(n);
+    vector<int> a(n);
+
+    SECTION("Add on range")
+    {
+        for (int i = 0; i < num_queries; ++i)
+        {
+            int add_value = rand() % mod;
+
+            auto range1 = gen_range(n);
+            ds.add_on_range(range1.first, range1.second, add_value);
+
+            for (int j = range1.first; j <= range1.second; ++j)
+            {
+                a[j] += add_value;
+            }
+
+            auto range2 = gen_range(n);
+            REQUIRE(ds.sum(range2.first, range2.second) == sum(a, range2.first, range2.second));
+        }
+    }
+
+    SECTION("Assignment")
+    {
+        for (int i = 0; i < num_queries; ++i)
+        {
+            size_t index = rand() % n;
+            int value = rand() % mod;
+
+            ds.assign(index, value);
+
+            a[index] = value;
+
+            auto range = gen_range(n);
+            REQUIRE(ds.sum(range.first, range.second) == sum(a, range.first, range.second));
+        }
+    }
+}
+
 namespace Disjoint_set
 {
     #include <data_structure/Disjoint_set.hpp>
+}
+
+namespace Segment_tree
+{
+    #include <data_structure/Segment_tree.hpp>
+
+    TEST_CASE("Segment tree")
+    {
+        test_range_queries<Segment_tree>();
+    }
 }
 
 namespace Sqrt_decomp
@@ -34,61 +124,7 @@ namespace Sqrt_decomp
 
     TEST_CASE("Sqrt decomposition")
     {
-        srand(time(NULL));
-
-        SECTION("Small input data")
-        {
-            Sqrt_sum a1(20);
-
-            a1.add_on_range(0, 4, 1);
-            a1.add_on_range(2, 4, 2);
-            a1.add_on_range(1, 3, 3);
-            a1.add_on_range(0, 3, 2);
-            REQUIRE(a1.sum(0, 4) == 28);
-            REQUIRE(a1.sum(0, 0) == 3);
-        }
-
-        constexpr int n = 100;
-        constexpr int num_queries = 100;
-        constexpr int mod = 100;
-
-        Sqrt_sum a_sqrt(n);
-        vector<int> a(n);
-
-        SECTION("Add on range")
-        {
-            for (int i = 0; i < num_queries; ++i)
-            {
-                int add_value = rand() % mod;
-
-                auto range1 = gen_range(n);
-                a_sqrt.add_on_range(range1.first, range1.second, add_value);
-
-                for (int j = range1.first; j <= range1.second; ++j)
-                {
-                    a[j] += add_value;
-                }
-
-                auto range2 = gen_range(n);
-                REQUIRE(a_sqrt.sum(range2.first, range2.second) == sum(a, range2.first, range2.second));
-            }
-        }
-
-        SECTION("Assignment")
-        {
-            for (int i = 0; i < num_queries; ++i)
-            {
-                size_t index = rand() % n;
-                int value = rand() % mod;
-
-                a_sqrt.assign(index, value);
-
-                a[index] = value;
-
-                auto range = gen_range(n);
-                REQUIRE(a_sqrt.sum(range.first, range.second) == sum(a, range.first, range.second));
-            }
-        }
+        test_range_queries<Sqrt_decomp>();
     }
 }
 

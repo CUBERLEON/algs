@@ -1,7 +1,7 @@
-class Sqrt_sum
+class Sqrt_decomp
 {
 public:
-    Sqrt_sum(size_t n)
+    Sqrt_decomp(size_t n)
     : arr(n, 0)
     , len(ceil(sqrt(n)))
     , sum_blocks(len, 0)
@@ -17,6 +17,12 @@ public:
         value -= add_blocks[block]; // required for AddOnRange
         sum_blocks[block] += value - arr[index];
         arr[index] = value;
+    }
+
+    // Complexity: O(sqrt(N)) - time, O(1) - space
+    int get(size_t index)
+    {
+        return sum(index, index);
     }
 
     // Complexity: O(sqrt(N)) - time, O(1) - space
