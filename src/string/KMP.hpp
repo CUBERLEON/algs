@@ -28,13 +28,13 @@ vector<int> prefix_values(const string& s)
  */
 vector<int> kmp_1(const string& needle, const string& text)
 {
-    int n = needle.size();
-    if (!n) return {};
+    vector<int> res;
 
+    int n = needle.size();
     int m = text.size();
+    if (!n || !m) return res;
 
     auto max_prefixes = prefix_values(needle + "#" + text);
-    vector<int> res;
 
     for (int i = n + 1; i < max_prefixes.size(); ++i)
     {
@@ -52,20 +52,19 @@ vector<int> kmp_1(const string& needle, const string& text)
  */
 vector<int> kmp_2(string needle, const string& text)
 {
-    int n = needle.size();
-    if (!n) return {};
+    vector<int> res;
 
+    int n = needle.size();
     int m = text.size();
+    if (!n || !m) return res;
 
     auto max_prefixes = prefix_values(needle);
-
-    vector<int> res;
 
     int last_prefix = 0;
     for (int i = 0; i < m; ++i)
     {
         int len = last_prefix;
-        while (len > 0 && (len == n || text[i] != needle[len]))
+        while (len > 0 && text[i] != needle[len])
         {
             len = max_prefixes[len - 1];
         }
@@ -75,6 +74,7 @@ vector<int> kmp_2(string needle, const string& text)
         if (last_prefix == n)
         {
             res.push_back(i - n + 1);
+            last_prefix = max_prefixes[last_prefix - 1];
         }
     }
 

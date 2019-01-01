@@ -30,6 +30,7 @@
     - [x] Sqrt decomposition
     - [x] Disjoint-set
     - [x] Segment tree
+    - [ ] Fenwick tree
     - [ ] Cartesian tree
     - [ ] KD tree
     - [ ] Balanced tree: B-tree
